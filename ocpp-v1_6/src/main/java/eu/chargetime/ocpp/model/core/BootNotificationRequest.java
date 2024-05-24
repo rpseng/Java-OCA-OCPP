@@ -155,14 +155,14 @@ public class BootNotificationRequest extends RequestWithId {
    * Optional. This contains a value that identifies the serial number of the Charge Box inside the
    * Charge Point.
    *
-   * @param chargeBoxSerialNumber String, max 25 characters, case insensitive.
+   * @param chargeBoxSerialNumber String, max 50 characters, case insensitive (relaxing the spec of 25 chars).
    * @deprecated will be removed in future version. See {@link #setChargePointSerialNumber(String)}.
    */
   @Deprecated()
   public void setChargeBoxSerialNumber(String chargeBoxSerialNumber) {
-    if (chargeBoxSerialNumber != null && !ModelUtil.validate(chargeBoxSerialNumber, STRING_25_CHAR_MAX_LENGTH)) {
+    if (chargeBoxSerialNumber != null && !ModelUtil.validate(chargeBoxSerialNumber, STRING_50_CHAR_MAX_LENGTH)) {
       throw new PropertyConstraintException(
-          chargeBoxSerialNumber.length(), validationErrorMessage(STRING_25_CHAR_MAX_LENGTH));
+          chargeBoxSerialNumber.length(), validationErrorMessage(STRING_50_CHAR_MAX_LENGTH));
     }
 
     this.chargeBoxSerialNumber = chargeBoxSerialNumber;
@@ -180,13 +180,13 @@ public class BootNotificationRequest extends RequestWithId {
   /**
    * Optional. This contains a value that identifies the serial number of the Charge Point.
    *
-   * @param chargePointSerialNumber String, max 25 characters, case insensitive.
+   * @param chargePointSerialNumber String, max 50 characters, case insensitive (relaxing the spec of 25 chars).
    */
   @XmlElement
   public void setChargePointSerialNumber(String chargePointSerialNumber) {
-    if (chargePointSerialNumber != null && !ModelUtil.validate(chargePointSerialNumber, STRING_25_CHAR_MAX_LENGTH)) {
+    if (chargePointSerialNumber != null && !ModelUtil.validate(chargePointSerialNumber, STRING_50_CHAR_MAX_LENGTH)) {
       throw new PropertyConstraintException(
-          chargePointSerialNumber.length(), validationErrorMessage(STRING_25_CHAR_MAX_LENGTH));
+          chargePointSerialNumber.length(), validationErrorMessage(STRING_50_CHAR_MAX_LENGTH));
     }
 
     this.chargePointSerialNumber = chargePointSerialNumber;
